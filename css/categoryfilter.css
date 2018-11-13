@@ -1,0 +1,405 @@
+/*reset go*/
+body { padding: 0; margin: 0;}
+
+a { text-decoration: none; color: #333; cursor: pointer; }
+
+a:hover { text-decoration: none; }
+
+.clearfix:before, .clearfix:after { content: " "; display: table; }
+
+.clearfix:after { clear: both; }
+
+ul,li,ol{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.cls {
+    display: block;
+    overflow: hidden;
+    clear: both;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+}
+/*reset end*/
+/* 搜索结果页 GO */
+.filterContent{
+    padding: 0; 
+    margin: 0;
+	font-size: 14px;
+    font-family: "microsoft yahei", Arial, Helvetica, sans-serif;
+    color: #333;
+}
+.fllef{
+	float: left;
+}
+.filter_crumb>span{
+    margin: 10px 5px 10px 0;
+    float: left;
+    line-height: 28px;
+    height: 28px;
+}
+.page_ass .crumb_sel_item{
+    position: relative;
+    float: left;
+    line-height: 26px;
+    height: 28px;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    vertical-align: top;
+    padding: 0 32px 0 6px;
+    cursor: pointer;
+    background: #f8f8f8;
+    margin: 10px 5px 10px 0;
+}
+.page_ass .crumb_sel_item span {
+    font-weight: 400;
+    color: #333;
+}
+.page_ass .crumb_sel_item i {
+    float: none;
+    margin: 0;
+    display: block;
+    position: absolute;
+    width: 25px;
+    text-align: center;
+    height: 28px;
+    line-height: 28px;
+    right: 0;
+    top: 0;
+}
+.page_ass .crumb_sel_item em,.page_ass .crumb_sel_item i {
+    color: #e8a531;
+    font-style: normal;
+    transition: .2s;
+    -moz-transition: .2s;
+    -webkit-transition: .2s;
+    -o-transition: .2s;
+    outline: none !important;
+}
+.page_ass .crumb_sel_item:hover{
+	border-color: #e8a531;
+	background: #fff;
+}
+.page_ass .crumb_sel_item:hover i{
+	color: #fff;
+	background: #e8a531;
+
+}
+
+.body_ass {
+    border-top: 1px solid #ddd;
+    background: #f5f5f5;
+    color: #666;
+}
+.body_ass a{
+    transition: .1s;
+    -moz-transition: .1s;
+    -webkit-transition: .1s;
+    -o-transition: .1s;
+}
+.body_ass .ass_wrap{
+	position: relative;
+    _zoom: 1;
+    line-height: 34px;
+    border-bottom: 1px solid #ddd;
+    background: #f5f5f5;
+    margin: 0;
+    font-weight: normal;
+}
+.ass_wrap dt{
+    font-weight: normal;
+}
+dl.ass_wrap,dl.ass_wrap dt,dl.ass_wrap dd{
+	margin: 0;
+	padding: 0;
+	line-height: 34px;
+}
+.body_ass .ass_key {
+    float: left;
+    width: 100px;
+    padding-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.body_ass .ass_value {
+    margin-left: 110px;
+    padding-right: 150px;
+    padding-left: 20px;
+    overflow: hidden;
+    zoom: 1;
+    background: #fff;
+}
+.body_ass .ass_ext {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    width: 130px;
+    height: auto;
+    line-height: 22px;
+    overflow: hidden;
+    zoom: 1;
+}
+.body_ass .sel_letter{
+	float: left;
+    overflow: hidden;
+    zoom: 1;
+    padding-top: 10px;
+    font-size: 12px;
+}
+.body_ass .sel_letter li {
+    float: left;
+    height: 22px;
+    line-height: 18px;
+    border: 1px solid #FFF;
+    padding: 0 7px;
+    cursor: default;
+    text-align: center;
+    color: #333;
+}
+.body_ass .sel_letter li.curr,.body_ass .sel_letter li:hover {
+    border-color: #e8a531;
+    color: #e8a531;
+}
+.body_ass .sel_v_logos ul {    
+    padding-top: 1px;
+    margin: 10px 0;
+    overflow: hidden;
+    zoom: 1;
+    height: 120px;
+}
+.body_ass .sel_v_logos ul li{
+    float: left;
+    _display: inline;
+    padding: 0;
+    border: 1px solid #DDD;
+    margin: -1px -1px 0 0;
+    background: #FFF;
+    text-align: center;
+    height: 59px;
+    width: 104px;
+}
+.body_ass .sel_v_logos li.selected,.body_ass .sel_v_logos li:hover {
+    position: relative;
+    z-index: 5;
+    border-color: #e8a531;
+    box-shadow: 2px 2px 3px rgba(0,0,0,.12);
+}
+.body_ass .sel_v_logos li a {
+    display: block;
+    border: 1px solid #FFF;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    zoom: 1;
+    color: #333;
+    line-height: 60px;
+    height: 57px;
+    width: 102px;
+}
+.body_ass .sel_v_logos li.selected a,.body_ass .sel_v_logos li:hover a {
+    border-color: #e8a531;
+    text-decoration: none;
+    color: #e8a531;
+}
+.body_ass .sel_v_logos li a img {
+    margin: 5px;
+    vertical-align: middle;
+    height: 45px;
+    width: 90px;
+    display: block;
+}
+.body_ass .sel_v_logos li.selected a img,.body_ass .sel_v_logos li:hover a img {
+    display: none;
+}
+.body_ass .sel_v_logos li a i{
+    display: none;
+}
+
+.body_ass .sel_v_list {
+    overflow: hidden;
+    zoom: 1;
+    padding-top: 4px;
+}
+.body_ass .sel_v_list ul {
+    float: left;
+    overflow: hidden;
+    zoom: 1;
+    position: relative;
+    height: 30px;
+}
+.body_ass .sel_v_list li {
+    float: left;
+    _display: inline;
+    margin-right: 50px;
+    margin-bottom: 4px;
+    height: 26px;
+    line-height: 26px;
+}
+.body_ass .sel_v_list li a {
+    float: left;
+    white-space: nowrap;
+    zoom: 1;
+    color: #333;
+    font-size: 13px;
+}
+.body_ass .sel_v_list li a:hover,.body_ass .sel_v_list li a:hover i {
+    color: #e8a531;
+}
+.body_ass .sel_v_list li a i{
+    display: none;
+    margin-right: 5px;
+    color: #ccc;
+    vertical-align: middle;
+}
+.body_ass .sel_v_list li.selected a,.body_ass .sel_v_list li.selected a i{
+	color: #e8a531;
+    display: inline-block;
+}
+.body_ass .multiple .sel_v_list li a i{
+    display: inline-block;
+}
+
+.body_ass .ass_ext .ass_e_more{
+	float: left;
+	font-size: 12px;
+    margin-right: 10px;
+    position: relative;
+    height: 24px;
+    line-height: 23px;
+    padding: 0 10px;
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    /*visibility: hidden;*/
+}
+.body_ass .ass_ext .ass_e_more span{
+	margin-right: 5px;
+}
+.body_ass .ass_ext .ass_e_multiple{
+	float: left;
+	font-size: 12px;
+    height: 24px;
+    line-height: 23px;
+    border: 1px solid #ddd;
+    padding: 0 10px;
+    position: relative;
+    background: #fff;
+    color: #333;
+}
+.body_ass .ass_ext .ass_e_multiple span{
+	margin-left: 5px;
+}
+
+.body_ass .ass_ext .ass_e_multiple:hover,.body_ass .ass_ext .ass_e_more:hover{
+    border-color: #e8a531;
+    color: #e8a531;
+}
+
+.body_ass .extend .sel_v_logos ul,.body_ass .extend .sel_v_list ul,.body_ass .multiple .sel_v_list ul {
+    height: auto;
+}
+.body_ass .extend .sel_v_logos ul.ass_v_fixed,.body_ass .multiple .sel_v_logos ul.ass_v_fixed{
+	height: 233px;
+	overflow-y: auto;
+}
+.sel_v_logos ul::-webkit-scrollbar {
+    width:5px;
+    height:5px;  
+}
+.sel_v_logos ul::-webkit-scrollbar-button{
+    display: none;
+}
+.sel_v_logos ul::-webkit-scrollbar-track     {
+    background:#f7f7f7;
+}
+.sel_v_logos ul::-webkit-scrollbar-thumb{
+    background-color:#bbb;
+    border-radius: 5px;
+}
+.body_ass .ass_wrap.multiple {
+    margin-top: -1px;
+    border: 2px solid #e8a531;
+    background: #fffdee;
+}
+.body_ass .multiple .ass_key {
+    padding-left: 8px;
+}
+.body_ass .multiple .ass_value {
+    margin-left: 108px;
+    background: #fff;
+}
+.body_ass .multiple .ass_ext {
+    right: 8px;
+}
+.body_ass .sel_v_selected {
+    overflow: hidden;
+    zoom: 1;
+    display: none;
+}
+.body_ass .sel_v_selected .sel_v_txt,.body_ass .sel_v_selected .sel_v_list{
+	float: left;
+}
+.body_ass .multiple .sel_v_list li {
+    width: auto;
+    margin-right: 15px;
+}
+.body_ass .multiple .sel_v_list li a {
+    width: auto;
+}
+.body_ass .sel_v_btns {
+    display: none;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.body_ass .multiple .sel_v_btns {
+    display: block;
+}
+.body_ass .sel_v_btns .btn {
+    display: inline-block;
+    padding: 0 15px;
+    line-height: 30px;
+    height: 30px;
+    border-radius: 2px;
+    background: #f7f7f7;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 12px;
+    color: #333;
+    border: 1px solid #ccc;
+}
+.body_ass .sel_v_btns .btn_primary {
+    margin-right: 8px;
+    border-color: #e8a531;
+    color: #FFF;
+    background-color: #e8a531;
+}
+.body_ass .sel_v_btns .btn.disabled {
+    border: 1px solid #DDD;
+    background: #FFF;
+    cursor: default;
+    color: #CCC;
+    -webkit-filter: none;
+    opacity: .2;
+    filter: alpha(Opacity=20);
+    filter: alpha(Opacity=20);
+}
+.body_ass .sel_v_btns .btn_default {
+    margin-right: 8px;
+}
+.ass_extr{
+    padding:0;
+    border-top: 5px solid #f5f5f5;
+}
+.ass_extr .a_extr_more{
+    float: right;
+    display: block;
+    background: #f5f5f5;
+    color: #333;
+    font-size: 12px;
+    padding: 0 10px 3px;
+}
+/* 搜索结果页 END */

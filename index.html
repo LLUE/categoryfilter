@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>筛选条件</title>
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/categoryfilter.css">
+	<style>
+		.container{
+			max-width: 1000px;
+			margin: 0 auto;
+		}
+	</style>
+
+	<script src="js/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+	<!--搜索结果 GO-->
+	<div class="container filterContent">
+		<div id="filter"></div>
+	</div>
+	<!--搜索结果 end-->
+	<script src="js/categoryfilter.js"></script>
+
+	<script>
+
+var data=[
+{
+	"display": true,
+	"url":"",
+	"logo":"logo",
+	"title": "品牌",
+	"name":"pinpai",
+	"data": [ 
+	{ 
+		"url":"abc.com",
+		"src":"images/84_120x60_suningnew.jpg",
+		"id":"1",
+		"data-numb":"F",
+		"css":"common",
+		"name":"1",
+		"value": "苏宁易购"
+	},
+	{
+		"url":"abc.com",
+		"src":"images/88_huawei.jpg",
+		"id":"2",
+		"data-numb":"B",
+		"css":"common",
+		"name":"2",
+		"value": "华为"
+	},
+	{
+		"url":"abc.com",
+		"src":"images/90_lenovo.jpg",
+		"id":"3",
+		"data-numb":"C",
+		"css":"common",
+		"name":"3",
+		"value": "联想商城"
+	},
+	{
+		"url":"abc.com",
+		"src":"images/93_120x60_midea.jpg",
+		"id":"4",
+		"data-numb":"D",
+		"css":"common",
+		"name":"4",
+		"value": "美的商城"
+	},
+	{ 
+		"url":"abc.com",
+		"src":"images/103_meiduowei.jpg",
+		"id":"5",
+		"data-numb":"A",
+		"css":"common",
+		"name":"5",
+		"value": "美味多"
+	},
+	{
+		"url":"abc.com",
+		"src":"images/88_huawei.jpg",
+		"id":"6",
+		"data-numb":"B",
+		"css":"common",
+		"name":"6",
+		"value": "华为"
+	},
+	{
+		"url":"abc.com",
+		"src":"images/126_GJW.jpg",
+		"id":"7",
+		"data-numb":"C",
+		"css":"common",
+		"name":"7",
+		"value": "购物网"
+	},
+	{
+		"url":"abc.com",
+		"src":"images/84_120x60_suningnew.jpg",
+		"id":"8",
+		"data-numb":"D",
+		"css":"common",
+		"name":"8",
+		"value": "苏宁易购"
+	},
+	{ 
+		"url":"abc.com",
+		"src":"images/84_120x60_suningnew.jpg",
+		"id":"9",
+		"data-numb":"A",
+		"css":"common",
+		"name":"9",
+		"value": "苏宁易购"
+	},
+	{
+		"url":"abc.com",
+		"src":"images/126_GJW.jpg",
+		"id":"10",
+		"data-numb":"B",
+		"css":"common",
+		"name":"00",
+		"value": "购物网"
+	},
+	{
+		"url":"abc.com",
+		"src":"images/93_120x60_midea.jpg",
+		"id":"11",
+		"data-numb":"C",
+		"css":"common",
+		"name":"11",
+		"value": "美的商城"
+	},
+	{
+		"url":"abc.com",
+		"src":"images/90_lenovo.jpg",
+		"id":"12",
+		"data-numb":"D",
+		"css":"common",
+		"name":"12",
+		"value": "一号店"
+	},
+	{ 
+		"url":"abc.com",
+		"src":"images/84_120x60_suningnew.jpg",
+		"id":"13",
+		"data-numb":"A",
+		"css":"common",
+		"name":"13",
+		"value": "苏宁易购"
+	},
+	{
+		"url":"abc.com",
+		"src":"images/88_huawei.jpg",
+		"id":"14",
+		"data-numb":"B",
+		"css":"common",
+		"name":"14",
+		"value": "华为"
+	},
+	{
+		"url":"abc.com",
+		"src":"images/90_lenovo.jpg",
+		"id":"15",
+		"data-numb":"C",
+		"css":"common",
+		"name":"15",
+		"value": "天猫商城"
+	},
+	{
+		"url":"abc.com",
+		"src":"images/84_120x60_suningnew.jpg",
+		"id":"16",
+		"data-numb":"D",
+		"css":"common",
+		"name":"16",
+		"value": "一号店"
+	},
+	{ 
+		"url":"abc.com",
+		"src":"images/84_120x60_suningnew.jpg",
+		"id":"17",
+		"data-numb":"A",
+		"css":"common",
+		"name":"17",
+		"value": "苏宁易购"
+	},
+	{
+		"url":"abc.com",
+		"src":"images/88_huawei.jpg",
+		"id":"18",
+		"data-numb":"B",
+		"css":"common",
+		"name":"18",
+		"value": "华为"
+	},
+	{
+		"url":"abc.com",
+		"src":"images/90_lenovo.jpg",
+		"id":"19",
+		"data-numb":"C",
+		"css":"common",
+		"name":"19",
+		"value": "天猫商城"
+	},
+	{
+		"url":"abc.com",
+		"src":"images/84_120x60_suningnew.jpg",
+		"id":"20",
+		"data-numb":"D",
+		"css":"common",
+		"name":"20",
+		"value": "一号店"
+	}
+	]
+},
+{
+	"display": true,
+	"title": "价格",
+	"name":"jiage",
+	"data": [
+	{
+		"id":"-1",
+		"css":"common",
+		"name":"1",
+		"value": "1-2999"
+	},
+	{
+		"id":"1",
+		"css":"common",
+		"name":"2",
+		"value": "3000-5000"
+	},
+	{
+		"id":"2",
+		"css":"common",
+		"name":"3",
+		"value": "5000-7000"
+	},
+	{
+		"id":"3",
+		"css":"common",
+		"name":"4",
+		"value": "7000-9000"
+	}
+	]
+},
+{
+	"display": true,
+	"title": "电池容量",
+	"name":"dianchi",
+	"data": [
+	{
+		"id":"-1",
+		"css":"common",
+		"name":"1",
+		"value": "1200mAh以下"
+	},
+	{
+		"id":"1",
+		"css":"common",
+		"name":"2",
+		"value": "1200mAh-1999mAh"
+	},
+	{
+		"id":"2",
+		"css":"common",
+		"name":"3",
+		"value": "2000mAh-2999mAh"
+	},
+	{
+		"id":"3",
+		"css":"common",
+		"name":"4",
+		"value": "3000mAh-3999mAh"
+	},
+	{
+		"id":"4",
+		"css":"common",
+		"name":"4",
+		"value": "4000mAh-5999mAh"
+	},
+	{
+		"id":"5",
+		"css":"common",
+		"name":"3",
+		"value": "2000mAh-2999mAh"
+	},
+	{
+		"id":"6",
+		"css":"common",
+		"name":"4",
+		"value": "3000mAh-3999mAh"
+	},
+	{
+		"id":"7",
+		"css":"common",
+		"name":"4",
+		"value": "4000mAh-5999mAh"
+	}
+	]
+},
+{
+	"display": true,
+	"title": "平台",
+	"name":"pintai",
+	"tbold":"normal",
+	"data": [
+	{
+		"id":"-1",
+		"css":"common",
+		"name":"1",
+		"value": "全部"
+	},
+	{
+		"id":"1",
+		"css":"common",
+		"name":"2",
+		"value": "Inter平台"
+	},
+	{
+		"id":"2",
+		"css":"common",
+		"name":"3",
+		"value": "AMD平台"
+	},
+	{
+		"id":"3",
+		"css":"common",
+		"name":"4",
+		"value": "VDI平台"
+	}
+	]
+}
+];
+$('#filter').categoryfilter({
+	scope: 'Category',
+	data:data, 
+	newChange:function(newValue){
+		$('#demo_value').val(newValue);
+	},
+    newClick: function (target,options) { 
+    	var bsUrl,url;
+        var hrefUrl = window.location.href;
+        var searUrl = window.location.search.substr(1);
+    	    name    = options.name;
+
+    	var selected = $(target).find('.ass_valueList li.selected');
+        var array = new Array();
+        $.each(selected, function(i,item) {
+            array.push($(item).find('a').attr('data-id'));
+        });
+	    var id = array.join("|");
+
+	    if(searUrl.indexOf('eval=')>-1){
+    		var searUrl = searUrl.match(/eval=(\S*)/)[1];
+    		bsUrl = hrefUrl.match(/(\S*)eval=/)[1];
+    		searUrl = searUrl + '^';
+    		searUrl = 'eval=' + searUrl + name+'_'+id;
+    		url = bsUrl+searUrl;
+    		console.log(bsUrl,searUrl)
+    	}else{
+    		url = hrefUrl+'?eval=' + name+'_'+id;
+    	}
+    	window.location.href=url;
+    }
+});
+</script>
+</body>
+</html>
