@@ -23,7 +23,7 @@
         UrlValue: function(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
             var r = window.location.search.substr(1).match(reg);
-            if (r != null) return unescape(r[2]); 
+            if (r != null) return decodeURIComponent(r[2]); 
             return null;
         },
         postUrl: function(options){ //解析url参数添加到objData[]
@@ -238,7 +238,7 @@
                         if(targetContain.find('.ass_wrap').hasClass('multiple')){
                             $this.addSelectedLi(target, listnode, item, options);
                         }else{
-                            options.newClick(target,options); //执行点击事件
+                            $this.addClick(target,options); //执行点击传参事件
                         }
                     }                    
                 });
@@ -298,7 +298,7 @@
                         if(targetContain.find('.ass_wrap').hasClass('multiple')){
                             $this.selectedShow(target);
                         }else{
-                            options.newClick(target,options); //执行点击事件
+                            $this.addClick(target,options); //执行点击传参事件
                         }
                     }
                 });
@@ -355,9 +355,7 @@
                 a1     = $('<a href="javascript:;" class="btn btn_primary disabled" disabled>确定</a>'),
                 a2     = $('<a href="javascript:;" class="btn btn_default">取消</a>');
             a1.on('click',function(e){ //【确定】按钮
-                e.stopPropagation();
-                if (a1.attr("disabled") == "disabled") return
-                options.newClick(target,options); //执行点击事件
+                $this.addClick(target,options); //执行点击传参事件
             });
             a2.on('click',function(e){ //【取消】按钮
                 $this.delBtnClick(target);
@@ -365,6 +363,51 @@
             selBtn.append(a1);
             selBtn.append(a2);
             target.append(selBtn);
+        },
+        getUrlRequest : function (){ //获取url所有参数
+            var url = location.search; //获取url中“?”符后面的所有字符
+            var theRequest = new Object();
+            if(url.indexOf('?') != -1){
+                var str = url.substr(1);
+                var strs = str.split('&');
+                for(var i = 0; i<strs.length; i++) {
+                    theRequest[strs[i].split('=')[0]] = decodeURIComponent(strs[i].split('=')[1]);
+                }
+            }
+            return theRequest;
+        },
+        addClick: function (target, options) {  //点击li 传参 事件 
+            var bsUrl,url;
+            var hrefUrl = window.location.href;
+            var name    = options.name;
+            if(hrefUrl.indexOf('eval=') != -1){
+                bsUrl = hrefUrl.match(/(\S*)eval=/)[1];
+            }else{
+                bsUrl = hrefUrl;
+                if(bsUrl.charAt(bsUrl.length-1) == '#'){
+                    bsUrl = bsUrl.substring(0,bsUrl.length -1);
+                }
+            }
+            var selected = $(target).find('.ass_valueList li.selected');
+            var array = new Array();
+            $.each(selected, function(i,item) {
+                array.push($(item).find('a').attr('data-id'));
+            });
+            var id = array.join("|");
+            var evalUrlArr = hrefUrl.split(bsUrl)[1].split('&');
+            if(evalUrlArr[0].indexOf('eval=') != -1){
+                var evalOld = decodeURIComponent(evalUrlArr[0].split('=')[1]).split('^');
+                evalOld.push(name+'_'+id);
+                evalUrlArr[0] = 'eval=' + encodeURIComponent(evalOld.join('^'));
+                url = bsUrl + evalUrlArr.join('&');
+            }else if(bsUrl.indexOf('?') != -1 && bsUrl.indexOf('=') != -1){
+                url = bsUrl + '&' +'eval=' + encodeURIComponent(name+'_'+id);
+            }else{
+                url = bsUrl + '?' +'eval=' + encodeURIComponent(name+'_'+id);
+            }
+            options.newClick(target, options);
+            window.location.href=url;
+
         },
         assBtnLoad: function (target, options, data, targetContain) {  //ext按钮加载 + 按钮事件
             var $this  = this;
@@ -414,17 +457,28 @@
             var searUrl = $this.UrlValue('eval');
             var c = $(that).attr('name') +'_'+ $(that).attr('data-category').split(',').join('|');
             var d = searUrl.split('^');
-            if($this.UrlValue('eval') != null && searUrl.indexOf(c)>-1){
-                var bsUrl = hrefUrl.match(/(\S*)eval=/)[1];
+            var bsUrl = hrefUrl.match(/(\S*)eval=/)[1];
+            var aftUrl = hrefUrl.split(bsUrl)[1];
+            var url;
+            var aftUrlArr = aftUrl.split('&');
+
+            if(searUrl != null && searUrl.indexOf(c) != -1){
+            console.log(aftUrlArr);
                 d.forEach(function(val,key){
                     if (val == c) d.splice(key,1);
                 });
-                var url;
-                if(d.length>0){
-                    url = bsUrl + 'eval='+d.join('^');
-                }else{
-                    if(bsUrl.substring(bsUrl.indexOf('?')+1) <= 0) bsUrl = bsUrl.replace('?','');
-                    url = bsUrl;
+                if(d.length>0){    //eval的值存在的情况下
+                    aftUrlArr[0] = 'eval='+encodeURIComponent(d.join('^'));
+                    url = bsUrl + aftUrlArr.join('&');
+                }else{             //eval的值不存在的情况下
+                    if(aftUrlArr.length >= 2){
+                        console.log(aftUrlArr);
+                        url = bsUrl + aftUrlArr[1];
+                    }else if(bsUrl.charAt(bsUrl.length-1) == '?') {
+                        url = bsUrl.substring(0, bsUrl.lastIndexOf('?'));
+                    }else if(bsUrl.charAt(bsUrl.length-1) == '&') {
+                        url = bsUrl.substring(0, bsUrl.lastIndexOf('&'));
+                    }
                 }
                 window.location.href = url;
             }

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -23,7 +23,7 @@
 	<!--搜索结果 end-->
 	<script src="js/categoryfilter.js"></script>
 
-<script>
+	<script>
 
 var data=[
 {
@@ -337,33 +337,10 @@ var data=[
 $('#filter').categoryfilter({
 	scope: 'Category',
 	data:data, 
-	newChange:function(newValue){
-		$('#demo_value').val(newValue);
-	},
     newClick: function (target,options) { 
-    	var bsUrl,url;
-        var hrefUrl = window.location.href;
-        var searUrl = window.location.search.substr(1);
-    	    name    = options.name;
 
-    	var selected = $(target).find('.ass_valueList li.selected');
-        var array = new Array();
-        $.each(selected, function(i,item) {
-            array.push($(item).find('a').attr('data-id'));
-        });
-	    var id = array.join("|");
-
-	    if(searUrl.indexOf('eval=')>-1){
-    		var searUrl = searUrl.match(/eval=(\S*)/)[1];
-    		bsUrl = hrefUrl.match(/(\S*)eval=/)[1];
-    		searUrl = searUrl + '^';
-    		searUrl = 'eval=' + searUrl + name+'_'+id;
-    		url = bsUrl+searUrl;
-    		console.log(bsUrl,searUrl)
-    	}else{
-    		url = hrefUrl+'?eval=' + name+'_'+id;
-    	}
-    	window.location.href=url;
+    	console.log("触发点击事件");
+    	//alert($(target).find("li.selected").html());
     }
 });
 </script>
