@@ -1,6 +1,6 @@
 /**
  * Author:mochyli@163.com
- * Date:2018-10-26 
+ * Date:2018-12-18 
  */
  (function ($) {     
     //初始化绑定事件

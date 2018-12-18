@@ -18,7 +18,7 @@
 <body>
 	<!--搜索结果 GO-->
 	<div class="container filterContent">
-		<div id="filter"></div>
+		<div id="categfilter"></div>
 	</div>
 	<!--搜索结果 end-->
 	<script src="js/categoryfilter.js"></script>
@@ -334,7 +334,7 @@ var data=[
 	]
 }
 ];
-$('#filter').categoryfilter({
+$('#categfilter').categoryfilter({
 	scope: 'Category',
 	data:data, 
     newClick: function (target,options) { 
