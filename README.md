@@ -1,14 +1,12 @@
-# categoryfilter
+## categoryfilter
 仿天猫、京东商城条件筛选栏jq
 
-# 有几个问题
+### 几个问题
 - 【多选】按钮下多次点击再取消后出现bug   
-
 - url一直没想再调整   
-
 - css样式不可更改   
 
 
-# 20181218
+### 20181218
 1.url传参修改，加密方式encodeURIComponent/decodeURIComponent
 	
