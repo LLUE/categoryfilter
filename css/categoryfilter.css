@@ -272,7 +272,7 @@ dl.ass_wrap,dl.ass_wrap dt,dl.ass_wrap dd{
     background: #fff;
     color: #333;
     border: 1px solid #ddd;
-    /*visibility: hidden;*/
+    visibility: hidden;
 }
 .body_ass .ass_ext .ass_e_more span{
 	margin-right: 5px;
