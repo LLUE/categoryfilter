@@ -19,7 +19,23 @@
     	options: function (target) {
     		var opts = $(target).data("categoryfilter").options;
     		return opts;
-    	},
+        },
+        getQuery: function(variable) { //另一种获取参数方法
+            let href = window.location.href
+            let query = {};
+            href.split('?').forEach((e,i)=>{
+                if(e.indexOf('=')>0){
+                    let r = e.split('=');
+                    if(r[1].indexOf('#')>0){
+                        r[1] = r[1].split('#')[0];
+                    }
+                    query[r[0]] = r[1]
+                }
+            })
+            console.log(href);
+            console.log('url参数：',query);
+            return query[variable] ? query[variable] : false
+        },
         UrlValue: function(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
             var r = window.location.search.substr(1).match(reg);
